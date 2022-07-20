@@ -6,18 +6,16 @@ export class Server {
 	private app: Express
 	private port: string | number = process.env.SERVER_PORT ?? 3000
 
-	private setupMiddlewares(): Express {
+	private setupMiddlewares() {
 		if (process.env.TS_NODE_DEV) {
 			console.log('TS_NODE_DEV=TRUE')
 			this.app.use(logger('dev'))
 			this.app.use(appCors)
 		}
-		return this.app
 	}
 
-	private setupRoutes(): Express {
+	private setupRoutes() {
 		setupRoutes(this.app)
-		return this.app
 	}
 
 	private listen() {
