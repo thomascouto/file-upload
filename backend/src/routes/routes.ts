@@ -18,7 +18,7 @@ export default (router: Router): void => {
 	router.get('/list', routeAdapter(new ListController()))
 	router.post(
 		'/upload',
-		upload.single('file'),
+		upload.array('file'),
 		routeAdapter(new UploadController())
 	)
 	router.delete('/delete/:id', routeAdapter(new DeleteController()))
